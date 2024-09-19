@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Schedule</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="search-pane" class="col-md-6 search-pane">
+                <div class="welcome-message">
+                    <h1>Welcome to the Course Schedule</h1>
+                    <p>Find your courses and their details below.</p>
+                </div>
+                <div class="search-bar">
+                    <div class="input-group">
+                        <input type="text" id="search-input" class="form-control" placeholder="Search for courses...">
+                    </div>
+                    <div class="search-buttons">
+                        <button class="btn btn-sm text-white" data-search-type="code" style="background-color: #8cc8ea;">Course Code</button>
+                        <button class="btn btn-sm text-white" data-search-type="title" style="background-color: #8cc8ea;">Course Title</button>
+                        <button class="btn btn-sm text-white" data-search-type="instructor" style="background-color: #8cc8ea;">Instructor</button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <h2 class="mb-0">Course Schedule</h2>
+                    <select id="semester-select" class="ml-3 form-control form-control-sm" style="width: auto;">
+                        <!-- Options will be dynamically inserted here -->
+                    </select>
+                </div>
+                
+                <div id="course-list" class="row">
+                    <!-- Course cards will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="col-md-6 schedule-pane">
+                <div class="w-full md:w-5/12 p-2 flex flex-col shrink-0 md:grow md:overflow-y-auto md:min-h-0">
+                    <div class="bg-white dark:bg-gray-800 dark:text-white shadow rounded-lg w-full shrink-0 overflow-x-auto">
+                        <table class="table-fixed text-center w-full text-sm lg:text-base antialiased tracking-tight sm:tracking-normal">
+                            <thead>
+                                <tr>
+                                    <th class="w-4 md:w-6 time-cell"></th>
+                                    <th class="w-20">Mon</th>
+                                    <th class="w-20">Tue</th>
+                                    <th class="w-20">Wed</th>
+                                    <th class="w-20">Thu</th>
+                                    <th class="w-20">Fri</th>
+                                    <th class="w-20 hidden">Sat</th>
+                                </tr>
+                            </thead>
+                            <tbody id="timetable-body">
+                                <!-- Timetable slots will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 shadow bg-white dark:bg-zinc-800 dark:text-white divide-y dark:divide-zinc-500 rounded-lg overflow-hidden shrink-0">
+                        <div class="py-2 px-4 bg-zinc-50 dark:bg-zinc-700 flex items-center">
+                            <span class="font-medium">Courses</span>
+                            <span id="total-courses" class="ml-2 text-xs bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 border-opacity-50 rounded-full px-1">0</span>
+                        </div>
+                        <div id="schedule-list" class="divide-y dark:divide-zinc-500">
+                            <!-- Scheduled courses will be dynamically inserted here -->
+                        </div>
+                        <div id="total-credits" class="py-2 px-4 bg-zinc-50 dark:bg-zinc-700 text-green-700 dark:text-green-300 font-medium">Total Credits: 0</div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button id="download-picture" class="btn btn-primary">Download as Picture</button>
+                        <button id="export-table" class="btn btn-secondary">Export as Table</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+</body>
+</html>
